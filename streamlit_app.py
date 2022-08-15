@@ -24,7 +24,7 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page
 streamlit.dataframe(fruits_to_show)
 
-# Create a repeatable bloke of code (called a function):
+# Create a function:
 def get_fruityvice_data(this_fruit_choice):
     # Stores fruitvice fruit content in a variable + display fruit content in a dataframe (aka table format)
     fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
@@ -38,7 +38,7 @@ try:
     if not fruit_choice:
         streamlit.error("Please select a fruit to get information")
     else:
-        back_from_function = get_fruityvice_data(fruit_choice)
+        back_from_function = get_fruityvice_data(this_fruit_choice)
         streamlit.dataframe(fruit_choice)
 except URLError as e:
     streamlit.error()
