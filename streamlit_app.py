@@ -43,8 +43,6 @@ try:
 except URLError as e:
     streamlit.error()
 
-streamlit.stop()
-
 # Connecting to Snowflake instance
 # import snowflake.connector
 
@@ -73,6 +71,8 @@ if streamlit.button('Get Fruit Load List'):
     back_from_function = insert_row_snowflake(add_my_fruit)
     streamlit.text(back_from_function)
 
+streamlit.stop()
+    
 # Section 12 Challegne #1
     # New section to display fruityvice api response
         #add_my_fruit = streamlit.text_input('What fruit would you like add','jackfruit')
